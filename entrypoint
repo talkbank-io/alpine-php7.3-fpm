@@ -1,0 +1,4 @@
+#!/bin/sh
+/etc/init.d/supervisor start
+/etc/init.d/cron start
+/usr/sbin/php-fpm7 -F

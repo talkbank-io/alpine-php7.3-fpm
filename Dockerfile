@@ -5,7 +5,10 @@ RUN apk add php7-fpm
 WORKDIR /var/www/
 
 # COPY etc/php/pool.d/ /etc/php7/fpm/pool.d/
-# EXPOSE 9000/tcp
+EXPOSE 9000/tcp
 
-# ENTRYPOINT ["/usr/local/bin/entrypoint"]
-ENTRYPOINT ["/bin/sh"]
+COPY entrypoint /usr/local/bin/
+RUN chmod a+x /usr/local/bin/entrypoint
+
+ENTRYPOINT ["/usr/local/bin/entrypoint"]
+# ENTRYPOINT ["/bin/sh"]

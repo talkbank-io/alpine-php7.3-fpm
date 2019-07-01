@@ -1,4 +1,8 @@
 #!/bin/sh
-/etc/init.d/supervisor start
-/etc/init.d/cron start
+openrc default
+echo "Start supervisor\n"
+rc-service supervisord start
+echo "Start cron \n"
+crond
+echo "Start FPM \n"
 /usr/sbin/php-fpm7 -F
